@@ -3,10 +3,27 @@ import Head from 'next/head'
  ** Import helpers and GetStaticProps type
  */
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
+import {
+  useGithubJsonForm,
+  useGithubToolbarPlugins,
+} from 'react-tinacms-github'
+import { usePlugin } from 'tinacms'
 import { GetStaticProps } from 'next'
 
-export default function Home({ file }) {
-  const data = file.data
+export default function Home({ file, preview }) {
+  const formOptions = {
+    label: 'Home Page',
+    fields: [{ name: 'title', component: 'text' }],
+  }
+
+  /*
+   ** Register a JSON Tina Form
+   */
+  const [data, form] = useGithubJsonForm(file, formOptions)
+  usePlugin(form)
+
+  useGithubToolbarPlugins()
+
   return (
     <div className="container">
       <Head>
@@ -46,12 +63,12 @@ export default function Home({ file }) {
           </a>
 
           <a
-            href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className="card"
           >
             <h3>Deploy &rarr;</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with ZEIT Now.
+              Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
         </div>
@@ -125,6 +142,7 @@ export default function Home({ file }) {
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+          color: ${preview && 'red'};
         }
 
         .title,
