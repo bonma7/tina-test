@@ -11,9 +11,9 @@ export function Hero() {
        <h1>
         <InlineTextarea name="headline" />
        </h1>
-       <p>
+       <div>
          <InlineTextarea name="subtext" />
-       </p>
+       </div>
       </div>
     </div>
   )
