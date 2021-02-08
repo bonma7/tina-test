@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm, usePlugin, useCMS } from 'tinacms'
 // 1. Import `InlineForm`
 import { InlineForm } from 'react-tinacms-inline'
-import { Hero } from './components/Hero'
+import { Hero } from '../components/Hero'
 import data from '../content/data.json'
 
 export default function Home() {
