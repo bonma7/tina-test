@@ -16,7 +16,7 @@
     "react-tinacms-github": "^0.37.0",
     "react-tinacms-inline": "^0.37.0",
     "styled-components": "^5.2.1",
-    "tinacms": "^0.37.0"
+    "tinacms": "^0.66.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.25",
